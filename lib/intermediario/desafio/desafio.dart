@@ -21,17 +21,17 @@ main(List<String> args) {
 
   // Baseado na lista acima.
   // 1 - Remover os duplicados
-  SplayTreeSet<String> semDuplicados = SplayTreeSet.of(pessoas);
+  var semDuplicados = SplayTreeSet<String>.of(pessoas);
   print(semDuplicados);
   // 2 - Me mostre a quantidade de pessoas do sexo Masculino e Feminino
-  int contadorMasc = 0;
-  int contadorFemi = 0;
+  var contadorMasc = 0;
+  var contadorFemi = 0;
   for (var item in semDuplicados) {
-    var teste = item.contains('Masculino');
-    var teste1 = item.contains('Feminino');
-    if (teste == true) {
+    var masculino = item.contains('Masculino');
+    var feminino = item.contains('Feminino');
+    if (masculino == true) {
       contadorMasc++;
-    } else if (teste1 == true) {
+    } else if (feminino == true) {
       contadorFemi++;
     }
   }
@@ -40,15 +40,21 @@ main(List<String> args) {
   // 3 - Filtrar e deixar a lista somente com pessoas maiores de 18 anos
   //     e mostre a quantidade de pessoas com mais de 18 anos
   var contadorIdade = 0;
-  var list = [];
+  var list = <String>[];
+  var maisVelho = [];
   for (var item in semDuplicados) {
     var split = item.split('|');
-    if (int.tryParse(split[1]) > 18) {
+    var parse = int.tryParse(split[1]);
+    if (parse > 18) {
       contadorIdade++;
       list.add(item);
+      maisVelho.add(split);
     }
   }
   print('Quantidade de pessoas maiores de idade: $contadorIdade pessoas');
-  print(list);
+
   // 4 - Encontre a pessoa mais velha.
+  list.sort((a, b) => b.split('|')[1].compareTo(a.split('|')[1]));
+  List<String> maisVelho1 = list[0].split('|');
+  print('Pessoa com a maior idade: ${maisVelho1[0]} ${maisVelho1[1]} anos');
 }
