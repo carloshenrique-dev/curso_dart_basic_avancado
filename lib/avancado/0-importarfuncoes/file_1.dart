@@ -1,4 +1,4 @@
-import 'package:curso_dart_basico_avancado/avancado/importarfuncoes/file_2.dart'
+import 'package:curso_dart_basico_avancado/avancado/0-importarfuncoes/file_2.dart'
     as somafile2;
 
 void main() {

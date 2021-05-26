@@ -1,4 +1,4 @@
-import 'package:curso_dart_basico_avancado/avancado/orientacaoObjetos/classes/camiseta.dart';
+import 'package:curso_dart_basico_avancado/avancado/1-orientacaoObjetos/0-classes/camiseta.dart';
 
 void main() {
   Camiseta camiseta = Camiseta();
